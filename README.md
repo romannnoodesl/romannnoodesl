@@ -40,9 +40,8 @@ Browser-based CPU mining for publishers. The idea is straightforward — instead
 
 I landed on this approach after watching the ad-blocking arms race play out for years. Ad blockers win, ad networks adapt, users get more aggressive blockers, publishers get squeezed. It's a lose-lose-lose. Mining isn't perfect either — there's a bad taste left from the CoinHive days and people forcing 100% CPU usage without consent. So earnify is designed differently:
 
-- **Cap at 30% CPU** — never pegged at 100%, never noticeable if you're actively using your machine
-- **Opt-in by default** — publishers can request, users can decline
-- **Pauses on tab blur** — if you're not looking at it, it stops
+- **Opt-in by default** — publishers can request, users can decline, assuming the publishers implemented it lol
+- **doesnt pause off tab** — if you're not looking at it, it wont matter
 - **WebAssembly miner** — runs in-browser, no extensions or installs
 
 The hard part isn't the mining logic — it's making the economics work. WebAssembly hash rates are slower than native by a factor of 10-20x. I'm currently working on WASM SIMD optimizations to close that gap. Getting there piece by piece.
@@ -78,7 +77,7 @@ CPU mining on the web won't replace ad revenue for most sites. Not yet. But for 
 | Platform    | Linux, Docker, Cloudflare Workers               | Linux daily driver, Docker for dev env, Workers for edge stuff     |
 | Concepts    | Browser internals, CPU mining algos, P2P        | Deep dive into how browsers actually run your code                 |
 
-I run Linux on my daily machine and do everything in Neovim + tmux. Tried VS Code for a year, went back. I spend way too much time in Chrome DevTools profiling performance.
+I run Linux on my daily machine and do everything with vscode and gnome text editor. Tried VIM for a year, went back, do hard lol.
 
 ---
 
@@ -118,12 +117,12 @@ I don't chase green squares but I try to ship something every week. Some weeks a
 
 ## What I'm Reading / Learning Right Now
 
-- **Rust WASM book** (again) — every time I read it I catch something I missed
-- **Browser engine internals** — specifically how V8 compiles and optimizes WASM
-- **RandomX spec** — understanding the memory-hard algo design decisions
-- **Cryptography for WASM** — looking at what hash functions map best to wasm32
+- **Gothic Violence** (again) — every time I read it I catch something I missed, but dont get me wrong i do not support any actions in that book
+- **Industrial Society and Its Future** — love this book, i find ted very interesting.
+- **Mastering Monero: The future of private transactions** — bought this book for my cousin but read it beforehand 
+- **Programming Basics with JavaScript** — this is how i got into coding
 
-I don't read textbooks cover to cover — I bounce between docs, source code, and blog posts. Whatever fills the gap fastest.
+I do like to read from very technichal to very political books and novels.
 
 ---
 
