@@ -6,15 +6,6 @@
   </picture>
 </div>
 
-```text
-██╗  ██╗███████╗██╗     ██╗      ██████╗     ██╗    ██╗ ██████╗ ██████╗ ██╗     ██████╗
-██║  ██║██╔════╝██║     ██║     ██╔═══██╗    ██║    ██║██╔═══██╗██╔══██╗██║     ██╔══██╗
-███████║█████╗  ██║     ██║     ██║   ██║    ██║ █╗ ██║██║   ██║██████╔╝██║     ██║  ██║
-██╔══██║██╔══╝  ██║     ██║     ██║   ██║    ██║███╗██║██║   ██║██╔══██╗██║     ██║  ██║
-██║  ██║███████╗███████╗███████╗╚██████╔╝    ╚███╔███╔╝╚██████╔╝██║  ██║███████╗██████╔╝
-╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝ ╚═════╝      ╚══╝╚══╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═════╝
-```
-
 <h1 align="center">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&duration=3000&pause=500&color=F7B801&center=true&vCenter=true&width=435&lines=Hey+%F0%9F%91%8B%2C+I'm+Roman;Indie+Developer;Open+Source+Builder;Web+Monetization+Nerd" alt="Typing SVG" />
 </h1>
@@ -29,37 +20,69 @@
 
 ---
 
-## <img src="https://media.giphy.com/media/W5eoZHPpUx9sapR0eu/giphy.gif" width="30px" alt="Git"/> About Me
+## About Me
 
-> Indie dev building open-source web tools. I believe the web should monetize without being awful.
+I'm Roman — been building stuff for the web for a while now. Started with vanilla JS and jQuery back in the day like everyone else, went through the React rabbit hole, and somewhere along the way fell into Rust and WASM because I wanted things to go faster. Now I spend most of my time thinking about how websites can make money without selling their users down the river.
 
-- **🔭 Currently working on** — [earnify.cc](https://earnify.cc) — browser-based CPU mining for publishers
-- **🌱 Learning** — Rust & WASM optimization, browser internals, low-level web perf
-- **💬 Ask me about** — Web monetization, browser mining, ad-blocker alternatives, indie dev
-- **📫 Reach me** — `contact@earnify.cc`
-- **⚡ Motto** — *The web should monetize without being awful*
-- **🎯 Goal** — Build sustainable monetization tools that respect users
+That whole ad experience on the modern web — the trackers, the popunders, the 15-second unskippables before a 3-minute video — it sucks. I don't think that's the only way. There's a version of the web where publishers get paid and visitors don't feel violated. That's what I'm trying to help build.
+
+I also write about this stuff on Dev.to when I have something worth saying, and occasionally ramble on YouTube about browser internals and indie dev chaos.
+
+**The short version:** I make things, break things, fix them, repeat.
 
 ---
 
-## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif" width="25px" alt="Skills"/> Stack & Tools
+## What I'm Building
+
+### [earnify.cc](https://earnify.cc)
+
+Browser-based CPU mining for publishers. The idea is straightforward — instead of plastering ads everywhere, a website can use a tiny bit of your computer's spare processing power while you're browsing, and the publisher gets paid. No ads, no trackers, no data collection.
+
+I landed on this approach after watching the ad-blocking arms race play out for years. Ad blockers win, ad networks adapt, users get more aggressive blockers, publishers get squeezed. It's a lose-lose-lose. Mining isn't perfect either — there's a bad taste left from the CoinHive days and people forcing 100% CPU usage without consent. So earnify is designed differently:
+
+- **Cap at 30% CPU** — never pegged at 100%, never noticeable if you're actively using your machine
+- **Opt-in by default** — publishers can request, users can decline
+- **Pauses on tab blur** — if you're not looking at it, it stops
+- **WebAssembly miner** — runs in-browser, no extensions or installs
+
+The hard part isn't the mining logic — it's making the economics work. WebAssembly hash rates are slower than native by a factor of 10-20x. I'm currently working on WASM SIMD optimizations to close that gap. Getting there piece by piece.
+
+### Honest talk about ROI
+
+CPU mining on the web won't replace ad revenue for most sites. Not yet. But for smaller publishers with engaged audiences who hate ads, it can cover hosting costs and then some. The numbers get better every year as hardware improves and the WASM runtime gets faster. I'm playing the long game here.
+
+---
+
+## Current Focus
+
+- **WASM SIMD optimizations** for the miner — squeezing every cycle out of the browser runtime
+- **Sub-100KB WASM binary** — currently around 140KB, need to shed more weight
+- **Web Worker pool management** — better multi-threaded scheduling without nuking the user's laptop fan
+- **Dashboard rewrite** — moving from server-rendered to a SPA for real-time stats
+- **Alternative algorithms** — looking at RandomX light mode as a potential option
+
+---
+
+## Stack & Tools
 
 <div align="center">
   <img src="https://skillicons.dev/icons?i=js,ts,rust,html,css,nodejs,react,wasm,webpack,babel,git,github,linux,vscode" />
 </div>
 
-| Category     | Technologies                                                                 |
-|-------------|-----------------------------------------------------------------------------|
-| Languages   | JavaScript (ES6+), TypeScript, Rust, HTML5, CSS3                            |
-| Frontend    | React, WebAssembly, Web Workers, Canvas API                                 |
-| Backend     | Node.js, Express, WebSocket, REST APIs                                      |
-| Tools       | Webpack, Babel, Vite, Git, GitHub Actions, CI/CD                            |
-| Platform    | Linux, Docker, Cloudflare Workers, Vercel                                   |
-| Concepts    | Browser internals, CPU mining algorithms, Ad-blocker circumvention, P2P     |
+| Category     | What I Use                                      | Why                                                                |
+|-------------|-------------------------------------------------|--------------------------------------------------------------------|
+| Languages   | JavaScript, TypeScript, Rust, HTML5, CSS3       | JS/TS for the web layer, Rust when I need speed                    |
+| Frontend    | React, WebAssembly, Web Workers, Canvas API     | React for UIs, WASM for the heavy lifting                          |
+| Backend     | Node.js, Express, WebSocket, PostgreSQL         | Node is fine for API work, WebSocket for real-time mining stats    |
+| Tools       | Webpack, Vite, Git, GitHub Actions              | Webpack for the main build, Vite for prototypes, Actions for CI    |
+| Platform    | Linux, Docker, Cloudflare Workers               | Linux daily driver, Docker for dev env, Workers for edge stuff     |
+| Concepts    | Browser internals, CPU mining algos, P2P        | Deep dive into how browsers actually run your code                 |
+
+I run Linux on my daily machine and do everything in Neovim + tmux. Tried VS Code for a year, went back. I spend way too much time in Chrome DevTools profiling performance.
 
 ---
 
-## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="25px" alt="Stats"/> GitHub Analytics
+## GitHub Analytics
 
 <div align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=romannnoodesl&show_icons=true&theme=dark&hide_border=true&count_private=true&include_all_commits=true&bg_color=0D1117" />
@@ -74,45 +97,50 @@
   <img src="https://github-profile-trophy.vercel.app/?username=romannnoodesl&theme=darkhub&no-frame=true&margin-w=4&row=2&column=4" />
 </div>
 
----
-
-## <img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="25px" alt="Activity"/> Recent Activity
-
-<!--START_SECTION:activity-->
-
-[![Recent Activity](https://github-readme-activity-graph.vercel.app/graph?username=romannnoodesl&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
+I don't chase green squares but I try to ship something every week. Some weeks are busier than others. Life happens.
 
 ---
 
-## 🚀 Projects
+## Activity Graph
 
-| Project | Description | Stack | Status |
-|---------|------------|-------|--------|
-| [earnify.cc](https://earnify.cc) | Browser-based CPU mining for publishers | JS, Rust, WASM | Active |
-| *More coming soon...* | — | — | TBD |
+[![Contribution Graph](https://github-readme-activity-graph.vercel.app/graph?username=romannnoodesl&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 ---
 
-## 📊 Weekly Stats
+## Projects
 
-<!--START_SECTION:waka-->
-
-```text
-No data yet — connect your WakaTime account!
-```
-
-<!--END_SECTION:waka-->
+| Project | What It Does | Made With | Status |
+|---------|-------------|-----------|--------|
+| [earnify.cc](https://earnify.cc) | CPU mining for publishers that doesn't suck | JS, Rust, WASM | Live & active |
+| More coming | Got a few side things cooking | — | Soon-ish |
 
 ---
 
-## 📝 Latest Blog Posts
+## What I'm Reading / Learning Right Now
 
-<!-- BLOG-POST-LIST:START -->
-<!-- BLOG-POST-LIST:END -->
+- **Rust WASM book** (again) — every time I read it I catch something I missed
+- **Browser engine internals** — specifically how V8 compiles and optimizes WASM
+- **RandomX spec** — understanding the memory-hard algo design decisions
+- **Cryptography for WASM** — looking at what hash functions map best to wasm32
+
+I don't read textbooks cover to cover — I bounce between docs, source code, and blog posts. Whatever fills the gap fastest.
 
 ---
 
-## 🤝 Let's Connect
+## Blog Posts & Writing
+
+I write on [Dev.to](https://dev.to/romannoodles) about web monetization, indie dev, and the occasional hot take about the ad industry. Some posts I've done:
+
+- Browser mining in 2025 — is it dead or just hibernating?
+- Why I stopped trying to compete with ads
+- WASM vs Native: benchmarking the gap
+- Building a CPU miner from scratch in Rust
+
+More writing on the way as earnify develops and I learn new things worth sharing.
+
+---
+
+## Let's Connect
 
 <div align="center">
   <a href="https://earnify.cc"><img src="https://img.shields.io/badge/Website-09090B?style=for-the-badge&logo=google-chrome&logoColor=white" /></a>
@@ -129,7 +157,9 @@ No data yet — connect your WakaTime account!
   <br />
   <img src="https://img.shields.io/github/followers/romannnoodesl?style=social" />
   <img src="https://img.shields.io/github/stars/romannnoodesl?style=social" />
+</div>
+
+<div align="center">
   <br />
-  <br />
-  <sub>⭐ From <a href="https://github.com/romannnoodesl">romannnoodesl</a> — built with ❤️ and ☕</sub>
+  <sub>If you got this far, thanks for reading. Now go build something.</sub>
 </div>
