@@ -111,6 +111,7 @@ I don't chase green squares but I try to ship something every week. Some weeks a
 | Project | What It Does | Made With | Status |
 |---------|-------------|-----------|--------|
 | [earnify.cc](https://earnify.cc) | CPU mining for publishers that doesn't suck | JS, Rust, WASM | Live & active |
+| [Field data archive](https://info.freegamesunblocked.org/) | Generated archive of field records and observations | JS, SSE | Live |
 | More coming | Got a few side things cooking | — | Soon-ish |
 
 ---
